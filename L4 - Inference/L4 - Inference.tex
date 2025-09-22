@@ -118,12 +118,10 @@ H_{0}:\mu_{x}=a \qquad H_{1}:\mu_{x}\ne a
 \]
 using a {\bf z test}.
 
-	\item We construct the test statistic\[
-		z = \frac{ \overline{X} - a}{n^{-1/2}\sigma}
-	\]
-	which under the null hypothesis has the standard normal distribution:\[
-	 z \sim \mathcal{N} \left( 0,1\right)
-\]
+	\item We construct the test statistic, which under the null hypothesis has the standard normal distribution:
+	\begin{align*}		z = \frac{ \overline{X} - a}{n^{-1/2}\sigma}
+	 \overset{d}{\to} \mathcal{N} \left( 0,1\right)
+	 \end{align*}
 \end{itemize}
 \end{frame}
 
@@ -512,9 +510,9 @@ The issues we have are:
 			\item Should include both $t$'s
 		\end{itemize}
 	\item Natural candidate:
-		\[
+		\begin{align*}
 			F = t_1^2 + t_2^2
-		\]
+		\end{align*}
 	\begin{itemize}
 		\item Always positive and only big when $t$'s are big
 		\item If $t_1$ and $t_2$ are independent normals, then $F\sim \chi^2_2$
@@ -789,15 +787,15 @@ where the middle piece of this ``sandwich'' estimator can be written as\[
 
 \vspace{5mm}
 
-We need a new command:
-\begin{itemize}{\small 
-	\item First, we need the \verb!car! package
-	\begin{itemize}{\footnotesize
-		\item As a reminder, to install packages use the command: \verb!install.packages("car")!
-		\item As a reminder, to load a package use the command: \verb!library(car)! }
-	\end{itemize}
-}
-\end{itemize}
+% We need a new command:
+% \begin{itemize}{\small 
+% 	\item First, we need the \verb!car! package
+% 	\begin{itemize}{\footnotesize
+% 		\item As a reminder, to install packages use the command: \verb!install.packages("car")!
+% 		\item As a reminder, to load a package use the command: \verb!library(car)! }
+% 	\end{itemize}
+% }
+% \end{itemize}
 \end{frame}
 
 
@@ -963,19 +961,14 @@ Could use $\tilde{e}_i$ instead of $e_i$ for a better estimate
 
 \begin{frame}[fragile]{Heteroskedasticity Consistent (HC) Variance Estimates}
 \footnotesize
-To read about SE's in \texttt{estimatr}:
-\url{ https://declaredesign.org/r/estimatr/articles/mathematical-notes.html}
 \begin{lstlisting}
 dat <- data.frame(X = matrix(rnorm(2000*5), 2000), y = rnorm(2000))
-hc0<-lm_robust(y ~ ., data = dat, se_type="HC0")$std.error
-hc1<-lm_robust(y ~ ., data = dat, se_type="HC1")$std.error
-hc2<-lm_robust(y ~ ., data = dat, se_type="HC2")$std.error
-hc3<-lm_robust(y ~ ., data = dat, se_type="HC3")$std.error
-all(hc2 > hc0 )
-[1] TRUE
-all(hc3> hc2 )
-[1] TRUE
+res<-feols(y~X..[1:5], dat)
+se(res,"iid")
+se(res,"hc1")
 \end{lstlisting}
+To read about SE implementation:
+\url{ https://declaredesign.org/r/estimatr/articles/mathematical-notes.html}
 \end{frame}
 
 
@@ -1123,9 +1116,8 @@ all(hc3> hc2 )
 
 \begin{frame}[fragile]{Clustering in R}
 \begin{lstlisting}
-lm_robust(y~ x1 + x2, data=df, se_type="CR0", cluster=group_id )
-lm_robust(y~ x1 + x2, data=df, se_type="CR2", cluster=group_id )
-lm_robust(y~ x1 + x2, data=df, se_type="CR1", cluster=group_id )
+feols(y~ x1 + x2, data=df, vcov=~group_id )
+feols(y~ x1 + x2, data=df, vcov=~group_id+time_id)
 \end{lstlisting}
 \end{frame}
 

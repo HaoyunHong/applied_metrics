@@ -1,10 +1,10 @@
 # Fdb version 4
-["xdvipdfmx"] 1757560203.30884 "L4 - Inference.xdv" "L4 - Inference.pdf" "L4 - Inference" 1757560204.15997 0
-  "L4 - Inference.xdv" 1757560203.21199 456116 d716382f48824c0a97bc436d9a09114c "xelatex"
+["xdvipdfmx"] 1758322652.61956 "L4 - Inference.xdv" "L4 - Inference.pdf" "L4 - Inference" 1758322653.39904 0
+  "L4 - Inference.xdv" 1758322652.52635 447792 c31c9657540691c86cd315d9fde521a7 "xelatex"
   (generated)
   "L4 - Inference.pdf"
   (rewritten before read)
-["xelatex"] 1757560200.83076 "L4 - Inference.tex" "L4 - Inference.xdv" "L4 - Inference" 1757560204.1577 0
+["xelatex"] 1758322650.07848 "L4 - Inference.tex" "L4 - Inference.xdv" "L4 - Inference" 1758322653.39697 0
   "../preamble.tex" 1726619536.00791 3033 bbf7d1fb8aa3225c8cc5fd2ba6132b1b ""
   "/usr/local/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/adobe/zapfding/pzdr.tfm" 1136768653 1528 f853c4d1b4e0550255e02831fdc8496f ""
@@ -279,11 +279,11 @@
   "/usr/local/texlive/2025/texmf-dist/web2c/texmf.cnf" 1749313668 42213 4e2ca030e8e2640502016e9e45868dcb ""
   "/usr/local/texlive/2025/texmf-var/web2c/xetex/xelatex.fmt" 1752362022 5896477 9a06f6d292863473a5646c7e56137f44 ""
   "/usr/local/texlive/2025/texmf.cnf" 1741450484 577 418a7058ec8e006d8704f60ecd22c938 ""
-  "L4 - Inference.aux" 1757560203.21027 9891 e9c7cb4c4b281f662f8c6f460f4b1bc5 "xelatex"
-  "L4 - Inference.nav" 1757560203.21193 5387 380e3e9a456aaf683fadbbeade71fc59 "xelatex"
-  "L4 - Inference.out" 1757560201.78795 0 d41d8cd98f00b204e9800998ecf8427e "xelatex"
-  "L4 - Inference.tex" 1757560196.6179 41025 0982459416c891ed4b5b827acb430038 ""
-  "L4 - Inference.vrb" 1757560203.05327 260 a5fd867349e600d542ab37299ec56235 "xelatex"
+  "L4 - Inference.aux" 1758322652.52475 9891 e9c7cb4c4b281f662f8c6f460f4b1bc5 "xelatex"
+  "L4 - Inference.nav" 1758322652.52627 5387 380e3e9a456aaf683fadbbeade71fc59 "xelatex"
+  "L4 - Inference.out" 1758322651.08856 0 d41d8cd98f00b204e9800998ecf8427e "xelatex"
+  "L4 - Inference.tex" 1758322648.68994 40757 bcbd50a35516c05524b02c4730f6ea49 ""
+  "L4 - Inference.vrb" 1758322652.36748 160 08c7c64dd3359b8be22a77301f44296e "xelatex"
   "engle1.pdf" 1538040086 350997 7b4c62f2c9ab8a2eb03483788816719b ""
   "explode.png" 1635303274 264119 e99b22b35f1011873498135ef1ed1c69 ""
   "fDistributionk3.eps" 1506956752 44503 971112ce0eaa69e70aff1e2cde548b7f ""

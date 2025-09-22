@@ -625,6 +625,13 @@ OUTPUT L4 - Inference.vrb
 INPUT ./L4 - Inference.vrb
 INPUT ./L4 - Inference.vrb
 INPUT L4 - Inference.vrb
+OUTPUT L4 - Inference.vrb
+INPUT ./L4 - Inference.vrb
+INPUT ./L4 - Inference.vrb
+INPUT L4 - Inference.vrb
+INPUT ./testingMultipleRestrictionsExample.pdf
+INPUT ./testingMultipleRestrictionsExample.pdf
+INPUT ./testingMultipleRestrictionsExample.pdf
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmss8.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmss8.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/newpx/zplmi.tfm
@@ -645,13 +652,6 @@ INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/newpx/zplsyc.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/newpx/zplsyc.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/newpx/zplexa.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/newpx/zplexa.tfm
-OUTPUT L4 - Inference.vrb
-INPUT ./L4 - Inference.vrb
-INPUT ./L4 - Inference.vrb
-INPUT L4 - Inference.vrb
-INPUT ./testingMultipleRestrictionsExample.pdf
-INPUT ./testingMultipleRestrictionsExample.pdf
-INPUT ./testingMultipleRestrictionsExample.pdf
 OUTPUT L4 - Inference.vrb
 INPUT ./L4 - Inference.vrb
 INPUT ./L4 - Inference.vrb
