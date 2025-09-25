@@ -2,8 +2,8 @@ PWD /Users/christopherconlon/Documents/GitHub/applied_metrics/L4 - Inference
 INPUT /usr/local/texlive/2025/texmf.cnf
 INPUT /usr/local/texlive/2025/texmf-dist/web2c/texmf.cnf
 INPUT /usr/local/texlive/2025/texmf-var/web2c/xetex/xelatex.fmt
-INPUT L4 - Inference.tex
-OUTPUT L4 - Inference.log
+INPUT standard_errors.tex
+OUTPUT standard_errors.log
 INPUT ../preamble.tex
 INPUT ../preamble.tex
 INPUT ../preamble.tex
@@ -441,10 +441,10 @@ INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libr
 INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryfit.code.tex
 INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarypositioning.code.tex
 INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarypositioning.code.tex
-INPUT ./L4 - Inference.aux
-INPUT ./L4 - Inference.aux
-INPUT L4 - Inference.aux
-OUTPUT L4 - Inference.aux
+INPUT ./standard_errors.aux
+INPUT ./standard_errors.aux
+INPUT standard_errors.aux
+OUTPUT standard_errors.aux
 INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/newpx/omlnpxmi.fd
 INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/newpx/omlnpxmi.fd
 INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/newpx/omlnpxmi.fd
@@ -458,11 +458,13 @@ INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/newpx/lmxnpxexx.fd
 INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/newpx/lmxnpxexx.fd
 INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/newpx/lmxnpxexx.fd
 INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/graphics/color.sty
-INPUT ./L4 - Inference.out
-INPUT ./L4 - Inference.out
-INPUT L4 - Inference.out
-INPUT L4 - Inference.out
-OUTPUT L4 - Inference.out
+INPUT ./standard_errors.out
+INPUT ./standard_errors.out
+INPUT standard_errors.out
+INPUT standard_errors.out
+INPUT ./standard_errors.out
+INPUT ./standard_errors.out
+OUTPUT standard_errors.out
 INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/translator/translator-basic-dictionary-English.dict
 INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/translator/translator-basic-dictionary-English.dict
 INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/translator/translator-basic-dictionary-English.dict
@@ -481,12 +483,10 @@ INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/translator/translator-numbers
 INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/translator/translator-theorem-dictionary-English.dict
 INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/translator/translator-theorem-dictionary-English.dict
 INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/translator/translator-theorem-dictionary-English.dict
-INPUT ./L4 - Inference.nav
-INPUT ./L4 - Inference.nav
-INPUT L4 - Inference.nav
-OUTPUT L4 - Inference.xdv
-INPUT ./explode.png
-INPUT ./explode.png
+INPUT ./standard_errors.nav
+INPUT ./standard_errors.nav
+INPUT standard_errors.nav
+OUTPUT standard_errors.xdv
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmss10.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmss8.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmss8.tfm
@@ -532,24 +532,9 @@ INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/newpx/zplsyc.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/newpx/zplexa.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/newpx/zplexa.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/newpx/zplexa.tfm
-INPUT ./hypothesis_test.pdf
-INPUT ./hypothesis_test.pdf
-INPUT ./hypothesis_test.pdf
-INPUT ./hypothesis_test.pdf
-INPUT ./hypothesis_test.pdf
-INPUT ./hypothesis_test.pdf
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmss12.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmss9.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/newpx/zplmi.tfm
-INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/newpx/zplsy.tfm
-INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/newpx/zplexx.tfm
-INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm
-INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
-INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/newpx/zplmia.tfm
-INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/newpx/zplsym.tfm
-INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/newpx/zplsyc.tfm
-INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/newpx/zplexa.tfm
-INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmss12.tfm
-INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/newpx/zplmi.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/newpx/zplmi.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/newpx/zplmi.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/newpx/zplsy.tfm
@@ -576,24 +561,6 @@ INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/newpx/zplsyc.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/newpx/zplexa.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/newpx/zplexa.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/newpx/zplexa.tfm
-INPUT ./tDistribution.png
-INPUT ./tDistribution.png
-INPUT ./jointTtests1.pdf
-INPUT ./jointTtests1.pdf
-INPUT ./jointTtests1.pdf
-INPUT ./joint_normal_ind.pdf
-INPUT ./joint_normal_ind.pdf
-INPUT ./joint_normal_ind.pdf
-INPUT ./joint_normal_corr.pdf
-INPUT ./joint_normal_corr.pdf
-INPUT ./joint_normal_corr.pdf
-INPUT ./jointTtests2.pdf
-INPUT ./jointTtests2.pdf
-INPUT ./jointTtests2.pdf
-INPUT ./fDistributionk3.eps
-INPUT ./fDistributionk3.eps
-INPUT ./fDistributionk3.eps
-INPUT fDistributionk3.eps
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmssbx10.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmssbx10.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmssbx10.tfm
@@ -618,57 +585,18 @@ INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/newpx/zplbsyc.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/newpx/zplbexa.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/newpx/zplbexa.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/newpx/zplbexa.tfm
-INPUT ./engle1.pdf
-INPUT ./engle1.pdf
-INPUT ./engle1.pdf
-OUTPUT L4 - Inference.vrb
-INPUT ./L4 - Inference.vrb
-INPUT ./L4 - Inference.vrb
-INPUT L4 - Inference.vrb
-OUTPUT L4 - Inference.vrb
-INPUT ./L4 - Inference.vrb
-INPUT ./L4 - Inference.vrb
-INPUT L4 - Inference.vrb
-INPUT ./testingMultipleRestrictionsExample.pdf
-INPUT ./testingMultipleRestrictionsExample.pdf
-INPUT ./testingMultipleRestrictionsExample.pdf
-INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmss8.tfm
-INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmss8.tfm
-INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/newpx/zplmi.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/newpx/zplmi.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/newpx/zplsy.tfm
-INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/newpx/zplsy.tfm
-INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/newpx/zplexx.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/newpx/zplexx.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm
-INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam7.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
-INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7.tfm
-INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/newpx/zplmia.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/newpx/zplmia.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/newpx/zplsym.tfm
-INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/newpx/zplsym.tfm
-INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/newpx/zplsyc.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/newpx/zplsyc.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/newpx/zplexa.tfm
-INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/newpx/zplexa.tfm
-OUTPUT L4 - Inference.vrb
-INPUT ./L4 - Inference.vrb
-INPUT ./L4 - Inference.vrb
-INPUT L4 - Inference.vrb
-OUTPUT L4 - Inference.vrb
-INPUT ./L4 - Inference.vrb
-INPUT ./L4 - Inference.vrb
-INPUT L4 - Inference.vrb
-INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmssbx10.tfm
-INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/newpx/zplbmi.tfm
-INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/newpx/zplbsy.tfm
-INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/newpx/zplbexx.tfm
-INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/newpx/zplbmia.tfm
-INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/newpx/zplbsym.tfm
-INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/newpx/zplbsyc.tfm
-INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/newpx/zplbexa.tfm
-OUTPUT L4 - Inference.nav
-OUTPUT L4 - Inference.toc
-OUTPUT L4 - Inference.snm
-INPUT L4 - Inference.aux
+OUTPUT standard_errors.nav
+OUTPUT standard_errors.toc
+OUTPUT standard_errors.snm
+INPUT standard_errors.aux
+INPUT ./standard_errors.out
+INPUT ./standard_errors.out
