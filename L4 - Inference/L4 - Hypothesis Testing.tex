@@ -596,13 +596,13 @@ F=\frac{\left(\boldsymbol{R}\boldsymbol{b}_{OLS}-\boldsymbol{q}\right)'\left\{ \
 \begin{frame}{Confidence Intervals I}
 \begin{itemize}
 	\item Note that if 	\[
-		{\bf b} \sim\mathcal{N}\left(\boldsymbol{\beta},\Sigma)\right),
+		{\bf b} \sim\mathcal{N}\left(\boldsymbol{\beta},\Sigma\right),
 	\]
 	then \[
 		b_{k} \sim\mathcal{N}\left(\beta_k,\Sigma_{kk}\right),	
 	\]
 	and \[
-	Pr\left[ b_{k} - z_{\left(1-\alpha/2\right)} \sqrt{\Sigma_{kk}} \le \beta_k \le b_k +  z_{\left(1-\alpha/2\right)}  \sqrt{\Sigma_{kk}}  \right] =\alpha 
+	\Pr\left[ b_{k} - \alert{\underbrace{z_{\left(1-\alpha/2\right)}}_{1.96}} \sqrt{\Sigma_{kk}} \le \beta_k \le b_k +  \alert{\underbrace{z_{\left(1-\alpha/2\right)}}_{1.96}}  \sqrt{\Sigma_{kk}}  \right] =\alpha 
 	\]
 	where $ z_{\left(1-\alpha/2\right)} $ is the value such that the CDF of the standard normal distribution is $1-\alpha/2$. 	
 
@@ -619,7 +619,8 @@ F=\frac{\left(\boldsymbol{R}\boldsymbol{b}_{OLS}-\boldsymbol{q}\right)'\left\{ \
 	\]
 	because the variance $\Sigma_{kk}$ has to be estimated, then
  \[
-	\hspace*{-1cm} Pr\left[ b_{k} - t_{\left(1-\alpha/2\right),n-K} \sqrt{\hat{\Sigma}_{kk}} \le \beta_k \le b_k +  t_{\left(1-\alpha/2\right),n-K}  \sqrt{\hat{\Sigma}_{kk}}  \right] =\alpha 
+	\hspace*{-1cm} \Pr\left[ b_{k} - \alert{t_{\left(1-\alpha/2\right),n-K}} \sqrt{\hat{\Sigma}_{kk}} \le \beta_k
+	 \le b_k +  \alert{t_{\left(1-\alpha/2\right),n-K}}  \sqrt{\hat{\Sigma}_{kk}}  \right] =\alpha 
 	\]
 	where $ t_{\left(1-\alpha/2\right),n-K} $ is the value such that the CDF of the t-distribution with $n-K$ degrees of freedom is $1-\alpha/2$. 	
 
@@ -640,7 +641,7 @@ F=\frac{\left(\boldsymbol{R}\boldsymbol{b}_{OLS}-\boldsymbol{q}\right)'\left\{ \
 
 	\smallskip
 	\item Defining the confidence interval in this way, the probability that the confidence interval contains
-	the true parameter is $1-\alpha$ (if the asymptotic distribution of the estimator is taken as the true distribution). 
+	the true parameter (\alert{coverage}) is $1-\alpha$ (if the asymptotic distribution of the estimator is taken as the true distribution). 
 	That is, if $\alpha=.05$, this is called a 95\% confidence interval, and there
 	is a 95\% chance it will contain the true parameter (assuming that the asymptotic approximation holds). 
 
@@ -655,18 +656,18 @@ F=\frac{\left(\boldsymbol{R}\boldsymbol{b}_{OLS}-\boldsymbol{q}\right)'\left\{ \
 \item Instead of estimating $\hat{\theta}$ and then assuming a Normal/t-distribution
 \item What if we directly tried to construct the \alert{sampling distribution} of $\hat{\theta}$?
 \end{itemize}
-\item Our data $(X_1,\ldots,X_n) \sim P$ are drawn from some measure $P$
+\item Our data $((X_1,Y_1),\ldots,(X_n,Y_n)) \sim P$ are drawn from some measure $P$
 \begin{itemize}
-\item We can form a \alert{nonparametric estimate} $\hat{P}$ by just assuming that each $X_i$ has weight $\frac{1}{n}$.
-\item We can then simulate a new sample $X^{*} = (X_1^{*},\ldots X_n^{*}) \sim \hat{P}$.
+\item We can form a \alert{nonparametric estimate} $\hat{P}$ by just assuming that each $(X_i,Y_i)$ has weight $\frac{1}{n}$.
+\item We can then simulate a new sample $(X^{*},Y^{*}) = ((X_1^{*},Y_1^{*}),\ldots, (Y_n^{*}, X_n^{*})) \sim \hat{P}$.
 \begin{itemize}
 \item Easy: we take our data and construct $n$ observations by \alert{sampling with replacement} 
 \end{itemize}
-\item Compute whatever statistic of $X^{*}$, $S(X^*)$ we would like.
+\item Compute whatever statistic of $S(X^*,Y^*)$ we would like.
 \begin{itemize}
 \item Could be the OLS coefficients $\beta_1^{*},\ldots, \beta_k^{*}$.
 \item Or some function $\beta_1^{*}/\beta_2^{*}$.
-\item Or something really complicated: estimate parameters of a game $\hat{\theta}^*$ and now find Nash Equilibrium of the game $S(X^{*},\hat{\theta^*})$ changes.
+\item Or something really complicated: estimate parameters of a game $\hat{\theta}^*$ and now find Nash Equilibrium of the game $S(X^{*},Y^{*},\hat{\theta^*})$ changes.
 \end{itemize}
 \item Do this $B$ times and calculate at $Var(S_b)$ or $CI(S_1,\ldots, S_b)$.
 \end{itemize}

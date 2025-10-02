@@ -1,0 +1,131 @@
+---
+title: "Wage Panel Data with fixest"
+author: "Prof. Conlon"
+date: "`r Sys.Date()`"
+output:
+  html_document: default
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE)
+library(fixest)
+library(wooldridge)   # contains wagepan
+library(dplyr)
+```
+
+# Introduction
+
+We estimate a **Mincer-type wage equation** using the panel dataset `wagepan`:
+
+$$
+\ln(wage_{it}) = \beta_0 + \beta_1 educ_i + \beta_2 exper_{it} + \beta_3 exper^2_{it} + u_{it}
+$$
+
+where $i$ indexes individuals and $t$ indexes years.
+
+We will compare **different standard errors**:
+
+- Classical (homoskedastic)
+- Robust (heteroskedasticity-consistent)
+- Clustered by individual
+- Two-way clustered by individual and year
+- Driscoll–Kraay (panel HAC)
+
+---
+
+# Load Data
+
+```{r data}
+data("wagepan")
+glimpse(wagepan)
+```
+
+Variables:
+- `lwage`: log wage  
+- `educ`: years of education  
+- `exper`: work experience  
+- `tenure`: job tenure  
+- `nr`: individual ID  
+- `year`: calendar year  
+
+---
+
+# Baseline Regression
+
+We estimate without fixed effects:
+
+```{r baseline}
+mod1 <- feols(lwage ~ educ + exper + expersq, data = wagepan)
+summary(mod1)  # classical SEs
+```
+
+---
+
+# Individual Fixed Effects
+
+Usually, we add **individual fixed effects**:
+
+```{r fe}
+mod2 <- feols(lwage ~ exper + expersq | nr, data = wagepan)
+summary(mod2)
+```
+
+---
+
+# Different Standard Errors
+
+## Heteroskedasticity-Robust
+
+```{r hetero}
+summary(mod2, vcov = "hetero")
+```
+
+## Clustered by Individual
+
+```{r cluster-indiv}
+summary(mod2, vcov = ~nr)
+```
+
+## Two-Way Clustered (nr × year)
+
+```{r twoway}
+summary(mod2, vcov = ~nr + year)
+```
+
+## Driscoll–Kraay
+
+Requires panel structure specified:
+
+```{r dk}
+mod_panel <- feols(lwage ~  exper + expersq | nr, 
+                   data = wagepan, panel.id = ~nr + year)
+summary(mod_panel, vcov = "DK")
+```
+
+---
+
+# Compare Results
+
+```{r compare}
+etable(
+  mod_panel,
+  vcov = list(
+    "Classical" = "iid",
+    "Hetero" = "hetero",
+    "Clustered (id)" = ~nr,
+    "Two-way (id+year)" = ~nr + year,
+    "Driscoll-Kraay" = "DK"
+    )
+)
+```
+
+---
+
+# Conclusion
+
+- **Clustered SEs** (by individual) are standard in panel wage regressions.  
+- **Two-way clustering** (id × year) is common when shocks are correlated across both dimensions.  
+- **Driscoll–Kraay** SEs are robust to heteroskedasticity, autocorrelation, and cross-sectional dependence.  
+
+---
