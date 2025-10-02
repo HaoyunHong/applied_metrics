@@ -1,0 +1,162 @@
+\documentclass[11pt]{article}
+%\usepackage[utf8x]{inputenc}
+\usepackage{geometry}
+\geometry{verbose}
+\setlength{\parskip}{6pt}
+\setlength{\parindent}{0pt}
+\usepackage{color}
+\usepackage{amsmath, amssymb}
+\usepackage[authoryear]{natbib}
+\usepackage[unicode=true,
+ bookmarks=false,
+ breaklinks=false,pdfborder={0 0 1},backref=section,colorlinks=false]
+ {hyperref}
+
+\makeatletter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
+\newcommand{\lyxmathsym}[1]{\ifmmode\begingroup\def\b@ld{bold}
+  \text{\ifx\math@version\b@ld\bfseries\fi#1}\endgroup\else#1\fi}
+\newcommand{\R}{\mathbb{R}}
+
+
+%% Because html converters don't know tabularnewline
+\providecommand{\tabularnewline}{\\}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{url}
+\usepackage{array}
+\usepackage{enumitem}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+\title{\Huge Problem Set 1}
+\author{\Large Chris Conlon}
+\date{\Large Fall 2025}
+
+\makeatother
+
+\begin{document}
+
+\title{Problem Set 2}
+\maketitle
+\begin{center}
+\begin{tabular*}{0.9\textwidth}{@{\extracolsep{\fill}}@{\extracolsep{\fill}}l@{\extracolsep{\fill}}l@{\extracolsep{\fill}}l}
+Econometrics I & $\qquad$ & Professor Chris Conlon\tabularnewline
+NYU Stern &  & Email: \href{mailto:cconlon@stern.nyu.edu}{cconlon@stern.nyu.edu}\tabularnewline
+\end{tabular*}
+\par\end{center}
+
+
+
+\subsection*{1 Prediction errors}
+The Cornwell and Rupert data for this problem can be downloaded from \url{http://www.github.com/chrisconlon/applied_metrics}.\\
+
+Source: Cornwell and Rupert, (1988) "Efficient estimation with panel data: an empirical comparison of instrumental variables estimators"
+
+(a) For this part of the assignment, you are to replicate the regression "Mincerian Regression, Cornwell and Rupert Data" from the Linear Regression slides by obtaining the same coefficients and standard errors. If that is possible (which is often not the case), other differences in reported results can usually be explained. As part of your submission for this assignment, include the specific estimation results that you obtained for this regression.
+
+Now that you have replicated the regression, we'll consider a couple of minor extensions.
+(b) Functional Form. The example thus far computes a single, generic effect of education on LWAGE. We're interested in determining if there is a different effect for men (FEM=0) and women (FEM=1). One compact way to do this is to add an interaction term, FEM*ED to the model. The different effects are the coefficient on ED which is for men and the sum of the two effects, ED and $\mathrm{FEM}^* \mathrm{Ed}$, for women. Reestimate your model with this additional effect, and report your result. (How does this look for a year of schooling, vs the levels of schooling complted?)
+
+(c) Standard Errors. Can you compute the bias-corrected bootstrap confidenfce interval for the difference in log wages between men and women college graduates (controlling for all other variables). Thinking about the right regression to run and the correct $g(\cdot)$ function should be what is tricky here.
+
+\subsection*{3 Data warm-up}
+
+The data file is on the Course Page/Github Page and is a CSV file that contains data on fuel bills and number of rooms for 144 homes. 
+
+\begin{enumerate}[label=\alph*)]
+\item Produce a simple scatter (X-Y) plot with ROOMS on the horizontal axis
+and FUELBILL on the vertical axis. What conclusion do you draw about
+the relationship between number of rooms and fuelbill? 
+
+\item Note that ROOMS only takes a few values, 3,4,5,\dots ,11. Compute
+the mean value of FUELBILL for the different values of ROOMS. What
+do you conclude about the conditional mean? Plot the means against
+the number of rooms. What do you find?
+\end{enumerate}
+
+
+
+\subsection*{4 Partitioned regression}
+Suppose a data set consists of $\boldsymbol{y}$ ($n \times 1$), $\boldsymbol{X}_{1}$ ($n \times K_{1}$)
+and $\boldsymbol{X}_{2}$  ($n \times K_{2}$). Do the following four procedures
+produce the same value for the least squares coefficients on $\boldsymbol{X}_{2}$?
+\begin{enumerate}[label=\alph*)]
+\item Regress $\boldsymbol{y}$ on both $\boldsymbol{X}_{1}$ and $\boldsymbol{X}_{2}$. 
+\item Regress the residuals from a regression of $\boldsymbol{y}$ on $\boldsymbol{X}_{1}$ on the
+residuals (column by column) of regressions of $\boldsymbol{X}_{2}$ on $\boldsymbol{X}_{1}$. 
+\item Same as (b), but do not transform $\boldsymbol{y}$. 
+\item Same as (b), but do not transform $\boldsymbol{X}_{2}$.
+\end{enumerate}
+
+{\footnotesize
+\emph{Hint:} $\boldsymbol{P}=\boldsymbol{X}\left(\boldsymbol{X}\boldsymbol{'X}\right)^{-1}\boldsymbol{X}'$
+is known as the \emph{projection matrix }because 
+\[
+\boldsymbol{P}\boldsymbol{y}=\boldsymbol{X}\left(\boldsymbol{X}\boldsymbol{'X}\right)^{-1}\boldsymbol{X}'\boldsymbol{y}=\boldsymbol{X}\boldsymbol{b}_{OLS}=\hat{\boldsymbol{y}}.
+\]
+Define $\boldsymbol{M}=\boldsymbol{I}-\boldsymbol{P}=\boldsymbol{I}-\boldsymbol{X}\left(\boldsymbol{X}\boldsymbol{'X}\right)^{-1}\boldsymbol{X}'$.
+This matrix is known as the \emph{residual maker} because
+\[
+\boldsymbol{M}\boldsymbol{y}=\left(\boldsymbol{I}-\boldsymbol{P}\right)\boldsymbol{y}=\boldsymbol{y}-\boldsymbol{P}\boldsymbol{y}=\boldsymbol{y}-\hat{\boldsymbol{y}}=\boldsymbol{e}.
+\]
+
+You can make progress on this problem by using the residual maker.
+For example, the matrix of residuals from regressing $\boldsymbol{X}_{2}$
+on $\boldsymbol{X}_{1}$ is given by 
+\[
+\left(\boldsymbol{I}-\boldsymbol{X}_{1}\left(\boldsymbol{X}_{1}\boldsymbol{'X}_{1}\right)^{-1}\boldsymbol{X}'_{1}\right)\boldsymbol{X}_{2}.
+\]
+}
+
+
+
+\subsection*{5 Change in the sum of squares}
+ Suppose that $\boldsymbol{b}$ is the least
+squares coefficient vector in the regression of $\boldsymbol{y}$ on $\boldsymbol{X}$ and that
+$\boldsymbol{c}$ is any other $K\times1$ vector. Prove that the difference in
+the two sums of squared residuals is 
+\[
+(\boldsymbol{y}-\boldsymbol{X} \boldsymbol{c})^{\prime}(\boldsymbol{y}-\boldsymbol{X} \boldsymbol{c})-
+(\boldsymbol{y}-\boldsymbol{X} \boldsymbol{b})^{\prime}(\boldsymbol{y}-\boldsymbol{X} \boldsymbol{b})=
+(\boldsymbol{c}-\boldsymbol{b})^{\prime} \boldsymbol{X}{}^{\prime} \boldsymbol{X}(\boldsymbol{c}-\boldsymbol{b}).
+\]
+\\
+A property of the matrix $\boldsymbol{X}^{\prime} \boldsymbol{X}$ is that is \emph{positive
+definite}. This means that for any vector $\boldsymbol{u} \ne0$, $\boldsymbol{u}'\boldsymbol{X}^{\prime}\boldsymbol{X} \boldsymbol{u}>0$.
+How does this property and your result above connect to the definition
+of the least squares estimator? 
+
+
+\subsection*{5 OLS Residuals} 
+
+(a) Consider the following table of data nad potential residuals:\\
+\begin{tabular}{cccccc}
+$y$ & $x_1$ & $x_2$ & $e_1$ & $e_2$ & $e_3$ \\
+\hline$?$ & 1 & 0 & 1 & 2 & 3 \\
+$?$ & 1 & -1 & -3 & -1 & -2 \\
+$?$ & 1 & 1 & 2 & -1 & 1
+\end{tabular}
+
+Which of the potential vectors of residuals $\boldsymbol{e}_1, \boldsymbol{e}_2$, and $\boldsymbol{e}_3$ (if any) could be from a regression of $y$ on $\left[\begin{array}{ll}\boldsymbol{x}_1 & \boldsymbol{x}_2\end{array}\right]$ ? Explain.
+(b) Show that the estimated OLS parameters are unchanged if the dependent variable and all dependent variables are transformed by subtracting their means.
+
+That is, let
+
+$$
+\left[\begin{array}{c}
+\beta_0 \\
+\boldsymbol{\beta}
+\end{array}\right]=\left(\boldsymbol{X}^{\prime} \boldsymbol{X}\right)^{-1} \boldsymbol{X}^{\prime} \boldsymbol{y},
+$$
+
+where $\beta_0$ is the intercept, $\boldsymbol{\beta}$ is a column of the other parameter estimates, and the first column of $\boldsymbol{X}$ is a vector of 1 's as usual. Show that $\boldsymbol{\beta}=\left(\widetilde{\boldsymbol{X}}^{\prime} \widetilde{\boldsymbol{X}}\right)^{-1} \widetilde{\boldsymbol{X}}^{\prime} \widetilde{\boldsymbol{y}}$, where $\widetilde{\boldsymbol{X}}$ drops the first column of $\boldsymbol{X}$ and for the other columns, $\widetilde{\boldsymbol{x}}_k=\boldsymbol{x}_k-n^{-1} \sum_{i=1}^n x_{k i}$. Similarly, $\widetilde{\boldsymbol{y}}=\boldsymbol{y}-n^{-1} \sum_{i=1}^n y_i$.
+
+
+
+\end{document}
