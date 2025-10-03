@@ -34,15 +34,13 @@
 \usepackage{enumitem}
 \newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
 
-\title{\Huge Problem Set 1}
+\title{\Huge Problem Set 2}
 \author{\Large Chris Conlon}
 \date{\Large Fall 2025}
 
 \makeatother
 
 \begin{document}
-
-\title{Problem Set 2}
 \maketitle
 \begin{center}
 \begin{tabular*}{0.9\textwidth}{@{\extracolsep{\fill}}@{\extracolsep{\fill}}l@{\extracolsep{\fill}}l@{\extracolsep{\fill}}l}
@@ -54,85 +52,22 @@ NYU Stern &  & Email: \href{mailto:cconlon@stern.nyu.edu}{cconlon@stern.nyu.edu}
 
 
 \subsection*{1 Prediction errors}
-The Cornwell and Rupert data for this problem can be downloaded from \url{http://www.github.com/chrisconlon/applied_metrics}.\\
+The Cornwell and Rupert data for this problem can be downloaded from \url{https://github.com/chrisconlon/applied_metrics/blob/master/Problem%20Sets-Fall/ps2/cornwell-rupert.csv}.\\
 
 Source: Cornwell and Rupert, (1988) "Efficient estimation with panel data: an empirical comparison of instrumental variables estimators"
 
-(a) For this part of the assignment, you are to replicate the regression "Mincerian Regression, Cornwell and Rupert Data" from the Linear Regression slides by obtaining the same coefficients and standard errors. If that is possible (which is often not the case), other differences in reported results can usually be explained. As part of your submission for this assignment, include the specific estimation results that you obtained for this regression.
+(a) For this part of the assignment, you are to replicate the regression "Mincerian Regression, Cornwell and Rupert Data" from the Linear Regression slides by obtaining the same coefficients and standard errors. Now that you have replicated the regression, we'll consider a couple of minor extensions.
 
-Now that you have replicated the regression, we'll consider a couple of minor extensions.
-(b) Functional Form. The example thus far computes a single, generic effect of education on LWAGE. We're interested in determining if there is a different effect for men (FEM=0) and women (FEM=1). One compact way to do this is to add an interaction term, FEM*ED to the model. The different effects are the coefficient on ED which is for men and the sum of the two effects, ED and $\mathrm{FEM}^* \mathrm{Ed}$, for women. Reestimate your model with this additional effect, and report your result. (How does this look for a year of schooling, vs the levels of schooling complted?)
+
+(b) Functional Form. The example thus far computes a single, generic effect of education on LWAGE. We're interested in determining if there is a different effect for men (FEM=0) and women (FEM=1). One compact way to do this is to add an interaction term, FEM*ED to the model. The different effects are the coefficient on ED which is for men and the sum of the two effects, ED and $\mathrm{FEM}^* \mathrm{Ed}$, for women. Reestimate your model with this additional effect, and report your result. (Do this both for the continuous measure ``years of schooling'' and the ``levels of schooling completed'' dummies).
 
 (c) Standard Errors. Can you compute the bias-corrected bootstrap confidenfce interval for the difference in log wages between men and women college graduates (controlling for all other variables). Thinking about the right regression to run and the correct $g(\cdot)$ function should be what is tricky here.
 
-\subsection*{3 Data warm-up}
-
-The data file is on the Course Page/Github Page and is a CSV file that contains data on fuel bills and number of rooms for 144 homes. 
-
-\begin{enumerate}[label=\alph*)]
-\item Produce a simple scatter (X-Y) plot with ROOMS on the horizontal axis
-and FUELBILL on the vertical axis. What conclusion do you draw about
-the relationship between number of rooms and fuelbill? 
-
-\item Note that ROOMS only takes a few values, 3,4,5,\dots ,11. Compute
-the mean value of FUELBILL for the different values of ROOMS. What
-do you conclude about the conditional mean? Plot the means against
-the number of rooms. What do you find?
-\end{enumerate}
 
 
+\url{https://github.com/chrisconlon/applied_metrics/blob/master/Problem%20Sets-Fall/ps2/gasoline.csv}.\\
 
-\subsection*{4 Partitioned regression}
-Suppose a data set consists of $\boldsymbol{y}$ ($n \times 1$), $\boldsymbol{X}_{1}$ ($n \times K_{1}$)
-and $\boldsymbol{X}_{2}$  ($n \times K_{2}$). Do the following four procedures
-produce the same value for the least squares coefficients on $\boldsymbol{X}_{2}$?
-\begin{enumerate}[label=\alph*)]
-\item Regress $\boldsymbol{y}$ on both $\boldsymbol{X}_{1}$ and $\boldsymbol{X}_{2}$. 
-\item Regress the residuals from a regression of $\boldsymbol{y}$ on $\boldsymbol{X}_{1}$ on the
-residuals (column by column) of regressions of $\boldsymbol{X}_{2}$ on $\boldsymbol{X}_{1}$. 
-\item Same as (b), but do not transform $\boldsymbol{y}$. 
-\item Same as (b), but do not transform $\boldsymbol{X}_{2}$.
-\end{enumerate}
-
-{\footnotesize
-\emph{Hint:} $\boldsymbol{P}=\boldsymbol{X}\left(\boldsymbol{X}\boldsymbol{'X}\right)^{-1}\boldsymbol{X}'$
-is known as the \emph{projection matrix }because 
-\[
-\boldsymbol{P}\boldsymbol{y}=\boldsymbol{X}\left(\boldsymbol{X}\boldsymbol{'X}\right)^{-1}\boldsymbol{X}'\boldsymbol{y}=\boldsymbol{X}\boldsymbol{b}_{OLS}=\hat{\boldsymbol{y}}.
-\]
-Define $\boldsymbol{M}=\boldsymbol{I}-\boldsymbol{P}=\boldsymbol{I}-\boldsymbol{X}\left(\boldsymbol{X}\boldsymbol{'X}\right)^{-1}\boldsymbol{X}'$.
-This matrix is known as the \emph{residual maker} because
-\[
-\boldsymbol{M}\boldsymbol{y}=\left(\boldsymbol{I}-\boldsymbol{P}\right)\boldsymbol{y}=\boldsymbol{y}-\boldsymbol{P}\boldsymbol{y}=\boldsymbol{y}-\hat{\boldsymbol{y}}=\boldsymbol{e}.
-\]
-
-You can make progress on this problem by using the residual maker.
-For example, the matrix of residuals from regressing $\boldsymbol{X}_{2}$
-on $\boldsymbol{X}_{1}$ is given by 
-\[
-\left(\boldsymbol{I}-\boldsymbol{X}_{1}\left(\boldsymbol{X}_{1}\boldsymbol{'X}_{1}\right)^{-1}\boldsymbol{X}'_{1}\right)\boldsymbol{X}_{2}.
-\]
-}
-
-
-
-\subsection*{5 Change in the sum of squares}
- Suppose that $\boldsymbol{b}$ is the least
-squares coefficient vector in the regression of $\boldsymbol{y}$ on $\boldsymbol{X}$ and that
-$\boldsymbol{c}$ is any other $K\times1$ vector. Prove that the difference in
-the two sums of squared residuals is 
-\[
-(\boldsymbol{y}-\boldsymbol{X} \boldsymbol{c})^{\prime}(\boldsymbol{y}-\boldsymbol{X} \boldsymbol{c})-
-(\boldsymbol{y}-\boldsymbol{X} \boldsymbol{b})^{\prime}(\boldsymbol{y}-\boldsymbol{X} \boldsymbol{b})=
-(\boldsymbol{c}-\boldsymbol{b})^{\prime} \boldsymbol{X}{}^{\prime} \boldsymbol{X}(\boldsymbol{c}-\boldsymbol{b}).
-\]
-\\
-A property of the matrix $\boldsymbol{X}^{\prime} \boldsymbol{X}$ is that is \emph{positive
-definite}. This means that for any vector $\boldsymbol{u} \ne0$, $\boldsymbol{u}'\boldsymbol{X}^{\prime}\boldsymbol{X} \boldsymbol{u}>0$.
-How does this property and your result above connect to the definition
-of the least squares estimator? 
-
-
+\url{https://lrberge.github.io/fixest/articles/fixest_walkthrough.html#interaction-terms}
 \subsection*{5 OLS Residuals} 
 
 (a) Consider the following table of data nad potential residuals:\\
