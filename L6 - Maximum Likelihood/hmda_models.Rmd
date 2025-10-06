@@ -1,0 +1,136 @@
+---
+title: "Loan Denial Models and Marginal Effects"
+author: "Prof. Conlon"
+date: "`r Sys.Date()`"
+output:
+  pdf_document:
+    latex_engine: xelatex
+fontsize: 11pt
+geometry: margin=1in
+header-includes:
+  - \usepackage{booktabs}
+  - \usepackage{threeparttable}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, results = 'asis')
+library(fixest)
+library(Ecdat)
+library(dplyr)
+library(marginaleffects)
+library(knitr)
+library(ggplot2)
+```
+
+## Data Preparation
+
+```{r}
+data("Hmda")
+
+data <- Hmda %>%
+  mutate(
+    deny = 1 * (deny == "yes"),
+    black = 1 * (black == "yes"),
+    pbcr = 1 * (pbcr == "yes"),
+    dmi = 1 * (dmi == "yes"),
+    lvr_high = (lvr > 0.95),
+    lvr_med  = (0.8 <= lvr) & (lvr <= 0.95)
+  )
+
+formula <- deny ~ black + dir + hir + lvr_med + lvr_high + ccs + mcs + pbcr + dmi
+```
+
+## Model Estimation
+
+```{r}
+lpm    <- feols(formula, data = data)
+probit <- feglm(formula, data = data, family = binomial(link = "probit"))
+logit  <- feglm(formula, data = data, family = binomial(link = "logit"))
+```
+
+## Regression Results
+
+```{r results='asis'}
+tab <- etable(
+  lpm, probit, logit,
+  title = "Loan Denial Models (LPM, Probit, Logit)",
+  tex = TRUE,
+  digits = 3,
+  fitstat = ~pr2 + n,
+  dict = c(
+    "black" = "Black",
+    "dir" = "Debt/Income",
+    "hir" = "Housing/Income",
+    "lvr_medTRUE" = "LTV: Medium",
+    "lvr_highTRUE" = "LTV: High",
+    "ccs" = "Consumer Credit",
+    "mcs" = "Mortgage Credit",
+    "pbcr" = "Public Bad Credit",
+    "dmi" = "Denied Mortgage Ins"
+  )
+)
+
+cat(tab)
+writeLines(tab, "etable_output.tex")
+```
+
+## Average Marginal Effects for `black`
+
+```{r results='asis'}
+ame_lpm <- avg_slopes(lpm, variables = "black")
+ame_probit <- avg_slopes(probit, variables = "black")
+ame_logit  <- avg_slopes(logit,  variables = "black")
+
+ame_tbl <- data.frame(
+  Model = c("LPM AME (black)","Probit AME (black)", "Logit AME (black)"),
+  Estimate = round(c(ame_lpm$estimate, ame_probit$estimate, ame_logit$estimate), 3),
+  Std_Error = round(c(ame_lpm$std.error, ame_probit$std.error, ame_logit$std.error), 3)
+)
+
+kable(
+  ame_tbl,
+  format = "latex",
+  booktabs = TRUE,
+  caption = "Average Marginal Effects for `black`"
+)
+```
+
+Now plot predicted probabilities
+
+```{r}
+# Construct a grid of values for 'dir' (debt-to-income ratio)
+dir_seq <- seq(min(data$dir, na.rm=TRUE),
+               max(data$dir, na.rm=TRUE),
+               length.out = 100)
+
+# Create a dataset for prediction
+# Set black = 0 and 1; other covariates fixed at their median
+pred_data <- expand.grid(
+  black = c(0, 1),
+  dir = dir_seq,
+  hir = median(data$hir, na.rm=TRUE),
+  lvr_med = median(as.numeric(data$lvr_med), na.rm=TRUE),
+  lvr_high = median(as.numeric(data$lvr_high), na.rm=TRUE),
+  ccs = median(data$ccs, na.rm=TRUE),
+  mcs = median(data$mcs, na.rm=TRUE),
+  pbcr = median(as.numeric(data$pbcr), na.rm=TRUE),
+  dmi = median(as.numeric(data$dmi), na.rm=TRUE)
+)
+# Get predicted probabilities
+pred_lpm   <- predictions(lpm, newdata = pred_data) |> mutate(model = "LPM")
+pred_logit <- predictions(logit, newdata = pred_data) |> mutate(model = "Logit")
+pred_all <- bind_rows(pred_lpm, pred_logit)
+
+# Plot
+ggplot(pred_all, aes(x = dir, y = estimate, color = factor(black), linetype = model)) +
+  geom_line(size = 1.2) +
+  labs(
+    x = "Debt-to-Income Ratio (dir)",
+    y = "Predicted Probability of Denial",
+    color = "Black Household",
+    linetype = "Model",
+    title = "Predicted Loan Denial Probability: LPM vs Logit"
+  ) + ylim(-0.1, 1.1) +
+  theme_minimal(base_size = 13)
+ggsave('predicted_effects.pdf')
+```

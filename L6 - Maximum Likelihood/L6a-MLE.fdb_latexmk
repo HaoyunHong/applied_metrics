@@ -1,10 +1,10 @@
 # Fdb version 4
-["xdvipdfmx"] 1759688601.41559 "lecture2_mle_intro.xdv" "lecture2_mle_intro.pdf" "lecture2_mle_intro" 1759688601.96007 0
-  "lecture2_mle_intro.xdv" 1759688601.30601 137260 c60f2e787d56de270e4cabcf9ecb30ed "xelatex"
+["xdvipdfmx"] 1759718644.27922 "L6a-MLE.xdv" "L6a-MLE.pdf" "L6a-MLE" 1759718644.82868 0
+  "L6a-MLE.xdv" 1759718644.1691 201972 108e84fa824afc89517ec77c9e6e679b "xelatex"
   (generated)
-  "lecture2_mle_intro.pdf"
+  "L6a-MLE.pdf"
   (rewritten before read)
-["xelatex"] 1759688599.43609 "lecture2_mle_intro.tex" "lecture2_mle_intro.xdv" "lecture2_mle_intro" 1759688601.95817 0
+["xelatex"] 1759718642.04576 "L6a-MLE.tex" "L6a-MLE.xdv" "L6a-MLE" 1759718644.82676 0
   "/Users/christopherconlon/Library/texmf/tex/latex/fixpauseincludegraphics/fixpauseincludegraphics.sty" 1726517785.07121 1931 6c7a30bfcbc0be1a8fb4c196dc92c9a6 ""
   "/Users/christopherconlon/Library/texmf/tex/latex/teaching_slides/teaching_slides.sty" 1759600247.33924 10103 35580c32b555bbcf331e8e6ccc5745af ""
   "/usr/local/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -264,17 +264,17 @@
   "/usr/local/texlive/2025/texmf-dist/web2c/texmf.cnf" 1749313668 42213 4e2ca030e8e2640502016e9e45868dcb ""
   "/usr/local/texlive/2025/texmf-var/web2c/xetex/xelatex.fmt" 1759534522 5937126 e6bf9052934f3e0620bb529a5731e68b ""
   "/usr/local/texlive/2025/texmf.cnf" 1741450484 577 418a7058ec8e006d8704f60ecd22c938 ""
-  "lecture2_mle_intro.aux" 1759688601.30457 4034 b0d92d937afee28b04704bde588a24d3 "xelatex"
-  "lecture2_mle_intro.nav" 1759688601.30593 2189 d5e3a34f021996a4ddb3ee6bd5ef7e2b "xelatex"
-  "lecture2_mle_intro.out" 1759688601.30566 78 11e533bd72f2c1403c493a359d3a2b20 "xelatex"
-  "lecture2_mle_intro.tex" 1759688598.11908 11890 eeac726d456ce769af53cb33095072d4 ""
+  "L6a-MLE.aux" 1759718644.16744 5623 bd321d52e449bab49d0558ac97289b09 "xelatex"
+  "L6a-MLE.nav" 1759718644.16899 3142 c9dc2d930543e4e600f7206e3de5489b "xelatex"
+  "L6a-MLE.out" 1759718644.16868 325 5d366d144b597f7a0682a12b954e37eb "xelatex"
+  "L6a-MLE.tex" 1759718638.30549 17367 e4925c2fe5b4d23166693470fe5f2b8e ""
   "resources/jensen.png" 1675814531.67382 94736 f06f547ddaf5a8dd29788e1824e20d65 ""
   (generated)
-  "lecture2_mle_intro.aux"
-  "lecture2_mle_intro.log"
-  "lecture2_mle_intro.nav"
-  "lecture2_mle_intro.out"
-  "lecture2_mle_intro.snm"
-  "lecture2_mle_intro.toc"
-  "lecture2_mle_intro.xdv"
+  "L6a-MLE.aux"
+  "L6a-MLE.log"
+  "L6a-MLE.nav"
+  "L6a-MLE.out"
+  "L6a-MLE.snm"
+  "L6a-MLE.toc"
+  "L6a-MLE.xdv"
   (rewritten before read)

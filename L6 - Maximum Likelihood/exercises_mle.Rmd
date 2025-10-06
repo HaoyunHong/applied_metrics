@@ -1,11 +1,27 @@
 ---
-title: 'Exercises: Week 2'
+title: "Logit/Probit Exercises"
 author: "Prof. Conlon"
-date: 'Due: 2/8/21'
+date: "`r Sys.Date()`"
 output:
-  pdf_document: default
-  html_notebook: default
+  html_document:
+    df_print: paged
+  pdf_document:
+    latex_engine: xelatex
+fontsize: 11pt
+geometry: margin=1in
+header-includes:
+- \usepackage{booktabs}
+- \usepackage{threeparttable}
 ---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, results = 'asis')
+library(fixest)
+library(Ecdat)
+library(dplyr)
+library(marginaleffects)
+library(knitr)
+```
+
 
 1. Let's load the Boston HMDA data.
 
@@ -15,17 +31,25 @@ The function should take the following arguments:
   * hir : housing to income ratio
   * single : dummy for single borrower
   * self : dummy for self-employed
-
  
 ```{r}
-library("Ecdat")
 data("Hmda")
 
-probit <- glm(deny ~ dir + hir + single + self, data = Hmda, family = binomial(link = "probit"))
-logit <- glm(deny ~ dir + hir + single + self, data = Hmda, family = binomial(link = "logit"))
+data <- Hmda %>%
+  mutate(
+    deny = 1 * (deny == "yes"),
+    black = 1 * (black == "yes"),
+    pbcr = 1 * (pbcr == "yes"),
+    dmi = 1 * (dmi == "yes"),
+    lvr_high = (lvr > 0.95),
+    lvr_med  = (0.8 <= lvr) & (lvr <= 0.95)
+  )
 
-summary(logit)
+formula <- deny ~ dir + hir + single + self
+logit    <- feols(formula, data = data,family = binomial(link = "logit"))
+etable(logit)
 ```
+
 
 2. Consider the regression model of the logit regression:
 $$

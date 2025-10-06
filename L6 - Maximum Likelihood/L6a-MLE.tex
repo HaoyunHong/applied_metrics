@@ -2,11 +2,8 @@
 \usepackage{teaching_slides}
 
 
-
-
-
 % \usepackage{slashbox}
-\title{Lecture 5: Maximum Likelihood Estimation}
+\title{Lecture 6a: Maximum Likelihood}
 \author{Chris Conlon }
 \institute{NYU Stern }
 \date{\today}
@@ -261,6 +258,31 @@ Tradeoffs
 \end{frame}
 
 
+
+\begin{frame}{Examples}
+We are going to practice writing down the:
+\begin{itemize}
+\item Likelihood $L(\theta)= \Pr(z_1,\ldots,z_n ; \theta) = \prod_{i=1}^N f(z_i ; \theta)$.
+\item log likelihood $\ell(\theta)= \sum_{i=1}^N \ln f(z_i ; \theta) = \sum_{i=1}^N \ell_i(z_i ; \theta)$.
+\item Scores $\mathcal{S}_i(z_i, \theta) =-\frac{\partial \ln f(z_i ; \theta)}{\partial \theta}=\frac{\partial \ell_i(z_i ; \theta)}{\partial \theta}$.
+\item Hessian contribution $\mathcal{H}_i(z_i, \theta) =\frac{\partial^2 \ell_i(z_i ; \theta)}{\partial \theta \partial \theta'}$.
+\item Information Matrix $\mathcal{I}(z_i, \theta) = \mathbb{E}_z[-\mathcal{H}_i(z_i,\theta)]=\mathbb{E}_z[\mathcal{S}_i(z_i,\theta) \mathcal{S}_i(z_i,\theta)^T]$
+\item Variance $V(\theta) \geq [\mathcal{I}(z_i, \theta)]^{-1} $ (Cramer-Rao Lower Bound).
+\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}{Exponential Example}
+\begin{itemize}
+\item Suppose we have data that are exponentially distributed $Y_i \sim \text{Exp}(\lambda)$. The goal is to estimate the parameter $\lambda$ via MLE and $f(y_i | \lambda) = \lambda e^{-\lambda y_i}$ so that $\E[y_i]=\frac{1}{\lambda}$.
+\item Sometimes we want to parameterize the rate  $\lambda_i = x_i' \beta$ with covariates.
+\item Example: Time until next customer arrives varies with time of day, day of week, etc. Time until default might depend on credit score, debt-to-income, market conditions, etc.
+\end{itemize}
+\end{frame}
+
+
+
 \begin{frame}{Exponential Regression Example (Careful: two parameterizations here!)}
 \begin{align*}
 \text{For } y_i > 0, \quad f _ { y \mid x} ( y_i \mid x_i , \beta  ) =  (x_i \, \beta)e^{ - (x_i \beta )\, y_i }\, \quad  \text{ so that } \E[y_i] = \frac{1}{x_i\, \beta}
@@ -277,6 +299,87 @@ And Score, Hessian, and Information Matrix:
 \end{align*}
 \end{frame}
 
+
+\section*{Computing Maximum Likelihood Estimators}
+
+\begin{frame}{Newton's Method for Root Finding}
+Consider the Taylor series for $f(x)$ approximated around $f(x_0)$:
+\begin{align*}
+f(x) \approx f(x_0) + f'(x_0) \cdot (x-x_0) + f''(x_0) \cdot (x-x_0)^2 + o_p(3)
+\end{align*}
+Suppose we wanted to find a \alert{root} of the equation where $f(x^{*})=0$ and solve for $x$:
+\begin{align*}
+0 &= f(x_0) + f'(x_0) \cdot (x-x_0) \\
+x_1 &= x_0-\frac{f(x_0)}{f'(x_0)} 
+\end{align*}
+This gives us an \alert{iterative} scheme to find $x^{*}$:
+\begin{enumerate}
+\item Start with some $x_k$. Calculate $f(x_k),f'(x_k)$
+\item Update using $x_{k+1} = x_k - \frac{f(x_k)}{f'(x_k)} $
+\item Stop when $|x_{k+1}-x_{k}| < \epsilon_{tol}$.
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{Newton-Raphson for Minimization}
+We can re-write \alert{optimization} as \alert{root finding};
+\begin{itemize}
+\item We want to know $\hat{\theta} = \arg \max_{\theta} \ell(\theta)$.
+\item Construct the FOCs $\frac{\partial \ell}{\partial \theta}=0 \rightarrow$  and find the zeros.
+\item How? using Newton's method! Set $f(\theta) = \frac{\partial \ell}{\partial \theta}$
+\end{itemize}
+\begin{align*}
+\theta_{k+1} &= \theta_k -  \left[ \frac{\partial^2 \ell}{\partial \theta^2}(\theta_k) \right]^{-1} \cdot \frac{\partial \ell}{\partial \theta}(\theta_k)
+\end{align*}
+The SOC is that $ \frac{\partial^2 \ell}{\partial \theta^2} >0$. Ideally at all $\theta_k$.\\
+This is all for a \alert{single variable} but the \alert{multivariate} version is basically the same.
+\end{frame}
+
+
+\begin{frame}{Newton's Method: Multivariate}
+Start with the objective $Q(\theta) = - \ell(\theta)$:
+\begin{itemize}
+\item Approximate $Q(\theta)$ around some initial guess $\theta_0$ with a quadratic function
+\item Minimize the quadratic function (because that is easy) call that $\theta_1$
+\item Update the approximation and repeat.
+\begin{align*}
+\theta_{k+1} = \theta_k - \left[ \frac{\partial^2 Q}{\partial \theta \partial \theta'} \right]^{-1}\frac{\partial Q}{\partial \theta}(\theta_k)
+\end{align*}
+\item The equivalent SOC is that the {Hessian Matrix} is \alert{positive semi-definite}  (ideally at all $\theta$).
+\item In that case the problem is \alert{globally convex} and has a \alert{unique maximum} that is easy to find.
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}{Newton's Method}
+We can generalize to Quasi-Newton methods:
+\begin{align*}
+\theta_{k+1} = \theta_k -  \lambda_k \underbrace{\left[ \frac{\partial^2 Q}{\partial \theta \partial \theta'} \right]^{-1}}_{A_k} \frac{\partial Q}{\partial \theta}(\theta_k)
+\end{align*}
+Two Choices:
+\begin{itemize}
+\item Step length $\lambda_k$
+\item Step direction $d_k=A_k \frac{\partial Q}{\partial \theta}(\theta_k)$
+\item Often rescale the direction to be unit length $\frac{d_k}{\norm{d_k}}$.
+\item If we use $A_k$ as the true Hessian and $\lambda_k=1$ this is a \alert{full Newton step}.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Newton's Method: Alternatives}
+Choices for $A_k$
+\begin{itemize}
+\item $A_k= I_{k}$ (Identity) is known as \alert{gradient descent} or \alert{steepest descent}
+\item BHHH. Specific to MLE. Exploits the \alert{Fisher Information}.
+\begin{align*}
+A _ { k } 
+&= \left[ \frac { 1 } { N } \sum _ { i = 1 } ^ { N } \frac { \partial \ln f } { \partial \theta } \left( \theta _ { k } \right) \frac { \partial \ln f } { \partial \theta ^ { \prime } } \left( \theta _ { k } \right) \right] ^ { - 1 }\\
+&=- \mathbb { E } \left[ \frac { \partial ^ { 2 } \ln f } { \partial \theta \partial \theta ^ { \prime } } \left( Z , \theta ^ { * } \right) \right] 
+= \mathbb { E } \left[ \frac { \partial \ln f } { \partial \theta } \left( Z , \theta ^ { * } \right) \frac { \partial \ln f } { \partial \theta ^ { \prime } } \left( Z , \theta ^ { * } \right) \right]
+\end{align*}
+\item Alternatives \alert{SR1} and \alert{DFP} rely on an initial estimate of the Hessian matrix and then approximate an update to $A_k$.
+\item Usually updating the Hessian is the costly step.
+\item Non invertible Hessians are bad news.
+\end{itemize}
+\end{frame}
 
 
 \section*{Thanks!}
