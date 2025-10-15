@@ -1,12 +1,12 @@
 # Fdb version 4
-["xdvipdfmx"] 1760479405.57732 "2_param_selection.xdv" "2_param_selection.pdf" "2_param_selection" 1760479405.79123 0
-  "2_param_selection.xdv" 1760479405.49054 216988 156a425ec1615171f63dab12aef70b3c "xelatex"
+["xdvipdfmx"] 1760489821.51343 "selection.xdv" "selection.pdf" "selection" 1760489821.80434 0
+  "selection.xdv" 1760489821.39878 216804 6faff9d57ff3a91793037bf7c287f0de "xelatex"
   (generated)
-  "2_param_selection.pdf"
+  "selection.pdf"
   (rewritten before read)
-["xelatex"] 1760479403.91198 "2_param_selection.tex" "2_param_selection.xdv" "2_param_selection" 1760479405.7895 0
-  "/Users/ctc5/Library/texmf/tex/latex/fixpauseincludegraphics/fixpauseincludegraphics.sty" 1759518298.77285 1931 6c7a30bfcbc0be1a8fb4c196dc92c9a6 ""
-  "/Users/ctc5/Library/texmf/tex/latex/teaching_slides/teaching_slides.sty" 1759772809.6003 10103 35580c32b555bbcf331e8e6ccc5745af ""
+["xelatex"] 1760489819.2487 "selection.tex" "selection.xdv" "selection" 1760489821.80233 0
+  "/Users/christopherconlon/Library/texmf/tex/latex/fixpauseincludegraphics/fixpauseincludegraphics.sty" 1726517785.07121 1931 6c7a30bfcbc0be1a8fb4c196dc92c9a6 ""
+  "/Users/christopherconlon/Library/texmf/tex/latex/teaching_slides/teaching_slides.sty" 1759600247.33924 10103 35580c32b555bbcf331e8e6ccc5745af ""
   "/usr/local/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/adobe/symbol/psyr.tfm" 1136768653 1408 5937f58aa508ea2cea4901c07d10f5fe ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/adobe/zapfding/pzdr.tfm" 1136768653 1528 f853c4d1b4e0550255e02831fdc8496f ""
@@ -273,21 +273,21 @@
   "/usr/local/texlive/2025/texmf-dist/tex/latex/xfrac/xfrac.sty" 1717530934 14945 a207ee7fd6b8cf6d82afb367c583ddd3 ""
   "/usr/local/texlive/2025/texmf-dist/tex/latex/xkeyval/xkeyval.sty" 1655411236 4937 4ce600ce9bd4ec84d0250eb6892fcf4f ""
   "/usr/local/texlive/2025/texmf-dist/web2c/texmf.cnf" 1749313668 42213 4e2ca030e8e2640502016e9e45868dcb ""
-  "/usr/local/texlive/2025/texmf-var/web2c/xetex/xelatex.fmt" 1759604275 5937127 c9e2d4aa437700dbc0e50d89c51ee9d3 ""
+  "/usr/local/texlive/2025/texmf-var/web2c/xetex/xelatex.fmt" 1759534522 5937126 e6bf9052934f3e0620bb529a5731e68b ""
   "/usr/local/texlive/2025/texmf.cnf" 1741450484 577 418a7058ec8e006d8704f60ecd22c938 ""
-  "2_param_selection.aux" 1760479405.48865 4219 90e226694709caa1a4805e5c837032c3 "xelatex"
-  "2_param_selection.nav" 1760479405.49046 2225 c1c5afbecb67aec0ba53ac1043f451e4 "xelatex"
-  "2_param_selection.out" 1760479404.70026 0 d41d8cd98f00b204e9800998ecf8427e "xelatex"
-  "2_param_selection.tex" 1760479402.66801 15544 6c857c904bf1ff93c977c85a51ecac88 ""
-  "2_param_selection.vrb" 1760479405.20806 534 6716b7877d9ebd202c2b6c4db048d7a4 "xelatex"
+  "selection.aux" 1760489821.39729 4219 90e226694709caa1a4805e5c837032c3 "xelatex"
+  "selection.nav" 1760489821.39869 2225 c1c5afbecb67aec0ba53ac1043f451e4 "xelatex"
+  "selection.out" 1760489820.32222 0 d41d8cd98f00b204e9800998ecf8427e "xelatex"
+  "selection.tex" 1760489815.69451 15517 5e061fe463f5735aaf256ebf23d86d46 ""
+  "selection.vrb" 1760489821.00659 534 6716b7877d9ebd202c2b6c4db048d7a4 "xelatex"
   (generated)
-  "2_param_selection.aux"
-  "2_param_selection.log"
-  "2_param_selection.nav"
-  "2_param_selection.out"
-  "2_param_selection.snm"
-  "2_param_selection.toc"
-  "2_param_selection.vrb"
-  "2_param_selection.xdv"
+  "selection.aux"
+  "selection.log"
+  "selection.nav"
+  "selection.out"
+  "selection.snm"
+  "selection.toc"
+  "selection.vrb"
+  "selection.xdv"
   (rewritten before read)
-  "2_param_selection.vrb"
+  "selection.vrb"
