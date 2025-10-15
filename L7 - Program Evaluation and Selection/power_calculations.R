@@ -36,3 +36,29 @@ power.t.test(delta = delta, sd = sigma, power = power,
              sig.level = alpha, type = "two.sample", alternative = "two.sided")
 
 
+## now make a graph
+p0 <- 0.02
+alpha <- 0.05
+power <- 0.8
+z_alpha <- qnorm(1-alpha/2)
+z_beta <- qnorm(power)
+
+lift_grid <- seq(0.05, 1.0, by=0.05)
+df <- data.frame(
+  lift = lift_grid,
+  p1 = p0 * (1 + lift_grid)
+)
+df$n <- ((z_alpha + z_beta)^2 * (df$p1*(1-df$p1) + p0*(1-p0))) / (df$p1 - p0)^2
+
+ggplot(df, aes(x = lift*100, y = n)) +
+  geom_line(linewidth=1.2) +
+  geom_point() +
+  scale_y_log10(labels = scales::comma) +
+  labs(
+    x = "Relative Lift (%)",
+    y = "Required Sample Size per Arm (log scale)",
+    title = "Sample Size vs. Lift (Baseline p0 = 2%)",
+    subtitle = "α = 0.05, Power = 0.80"
+  ) +
+  theme_minimal(base_size = 14)
+
