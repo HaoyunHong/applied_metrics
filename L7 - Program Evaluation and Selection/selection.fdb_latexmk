@@ -1,10 +1,10 @@
 # Fdb version 4
-["xdvipdfmx"] 1760489821.51343 "selection.xdv" "selection.pdf" "selection" 1760489821.80434 0
-  "selection.xdv" 1760489821.39878 216804 6faff9d57ff3a91793037bf7c287f0de "xelatex"
+["xdvipdfmx"] 1760490477.9822 "selection.xdv" "selection.pdf" "selection" 1760490478.27313 0
+  "selection.xdv" 1760490477.86473 217472 1c1b36c39c13486625c5dc66a7053687 "xelatex"
   (generated)
   "selection.pdf"
   (rewritten before read)
-["xelatex"] 1760489819.2487 "selection.tex" "selection.xdv" "selection" 1760489821.80233 0
+["xelatex"] 1760490475.74393 "selection.tex" "selection.xdv" "selection" 1760490478.27111 0
   "/Users/christopherconlon/Library/texmf/tex/latex/fixpauseincludegraphics/fixpauseincludegraphics.sty" 1726517785.07121 1931 6c7a30bfcbc0be1a8fb4c196dc92c9a6 ""
   "/Users/christopherconlon/Library/texmf/tex/latex/teaching_slides/teaching_slides.sty" 1759600247.33924 10103 35580c32b555bbcf331e8e6ccc5745af ""
   "/usr/local/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -275,11 +275,11 @@
   "/usr/local/texlive/2025/texmf-dist/web2c/texmf.cnf" 1749313668 42213 4e2ca030e8e2640502016e9e45868dcb ""
   "/usr/local/texlive/2025/texmf-var/web2c/xetex/xelatex.fmt" 1759534522 5937126 e6bf9052934f3e0620bb529a5731e68b ""
   "/usr/local/texlive/2025/texmf.cnf" 1741450484 577 418a7058ec8e006d8704f60ecd22c938 ""
-  "selection.aux" 1760489821.39729 4219 90e226694709caa1a4805e5c837032c3 "xelatex"
-  "selection.nav" 1760489821.39869 2225 c1c5afbecb67aec0ba53ac1043f451e4 "xelatex"
-  "selection.out" 1760489820.32222 0 d41d8cd98f00b204e9800998ecf8427e "xelatex"
-  "selection.tex" 1760489815.69451 15517 5e061fe463f5735aaf256ebf23d86d46 ""
-  "selection.vrb" 1760489821.00659 534 6716b7877d9ebd202c2b6c4db048d7a4 "xelatex"
+  "selection.aux" 1760490477.86325 4219 90e226694709caa1a4805e5c837032c3 "xelatex"
+  "selection.nav" 1760490477.86462 2225 c1c5afbecb67aec0ba53ac1043f451e4 "xelatex"
+  "selection.out" 1760490476.79402 0 d41d8cd98f00b204e9800998ecf8427e "xelatex"
+  "selection.tex" 1760490474.20144 15579 4d8c2cd8b722ffa261c07cf7fe1ee69d ""
+  "selection.vrb" 1760490477.47083 534 6716b7877d9ebd202c2b6c4db048d7a4 "xelatex"
   (generated)
   "selection.aux"
   "selection.log"

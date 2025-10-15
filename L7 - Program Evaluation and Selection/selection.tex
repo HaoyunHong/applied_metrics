@@ -359,7 +359,7 @@ Where $\rho=\sigma_{01} / \sigma_{0} \sigma_{1}$.
 
 
 \begin{frame}{Positive Hierarchical Sorting}
-Let $Q_{0}=E\left(u_{0} | I=1\right), Q_{1}=E\left(u_{1} | I=1\right)$ (expected \alert{skill} of immigrants).
+Let $Q_{0}=\E\left(u_{0} | I=1\right), Q_{1}=\E\left(u_{1} | I=1\right)$ (expected \alert{skill} of immigrants).
 \begin{itemize}
 \item Immigrants are positively selected and above average $(Q_0,Q_1) > 0$ and $\frac{\sigma_{1}}{\sigma_{0}}>1 \text { and } \rho>\frac{\sigma_{0}}{\sigma_{1}}$
 \begin{itemize}
@@ -406,6 +406,7 @@ What can we learn here?
 \item Doing MLE with a fully normal model is not a terrible place to start sometimes
 \begin{itemize}
 \item Sometimes helpful to know how bad the selection problem might be.
+\item But you probably need \alert{exclusion restrictions}!
 \end{itemize}
 \item R package is \texttt{sampleSelection} and see \url{https://rpubs.com/hacamvan/316839} and \url{https://cran.r-project.org/web/packages/sampleSelection/vignettes/selection.pdf}.
 \end{itemize}
