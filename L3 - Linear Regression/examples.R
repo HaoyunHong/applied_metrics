@@ -2,7 +2,6 @@
 
 # first, the Cornwell and Rupert regression
 suppressMessages(library(tidyverse))
-setwd('~/Dropbox/Econometrics-PhD-me/L3 - Linear Regression')
 data <- read.csv('cornwell-rupert.csv')
 
 
