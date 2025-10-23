@@ -1,4 +1,4 @@
-
+library(ggplot2)
 # two-sided test (approx normal)
 p0 <- 0.02
 lift <- 0.10
